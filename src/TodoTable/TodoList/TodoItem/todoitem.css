@@ -1,0 +1,84 @@
+.label {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  width: 100%;
+  line-height: 3.5em;
+  cursor: pointer;
+  transition: background-color 100ms ease-in;
+  font-size: 18px;
+}
+
+.checkbox {
+  position: relative;
+  margin-left: 45px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.checkbox::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  bottom: -15px;
+  left: -45px;
+  border-radius: 50%;
+  border: 1px solid var(--grey99);
+  width: 30px;
+  height: 30px;
+  transition: border-color 150ms ease-in;
+
+}
+
+.checkbox::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: -38px;
+  border-left: 1px solid var(--green);
+  border-bottom: 1px solid var(--green);
+  width: 20px;
+  height: 10px;
+  opacity: 0;
+  transform: rotate(305deg) skewX(-15deg);
+  transition: opacity 150ms ease-in;
+}
+
+.label:hover {
+  background-color: var(--greyEC);
+}
+
+.label * {
+  transition: color 150ms ease-in;
+}
+
+.checkbox:checked::after {
+  display: inline-block;
+  opacity: 1;
+}
+
+.checkbox:checked::before {
+  border-color: var(--green);
+}
+
+.checkbox:checked + .text  {
+  color: var(--grey99);
+  text-decoration: line-through;
+}
+
+.delButton {
+  margin-left: auto;
+}
+
+.delButton svg path {
+  transition: fill 100ms ease-in;
+}
+
+.delButton:hover svg path {
+  fill: red;
+}
+
+.delButton:active svg path {
+  fill: var(--black);
+}
+

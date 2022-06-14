@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 80px;
+  color: var(--black);
+  font-weight: 300;
+}
+
+
+@media (min-width: 768px) {
+
+  .title {
+    font-size: 120px;
+  }
+}

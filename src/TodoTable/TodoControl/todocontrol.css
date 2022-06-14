@@ -1,0 +1,46 @@
+.control {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  justify-content: space-between;
+  padding: 15px 20px;
+  width: 100%;
+}
+
+.active {
+  outline: 1px solid steelblue;
+  outline-offset: 4px;
+}
+
+.filter {
+  display: flex;
+  flex: 1 1 100%;
+  order: -1;
+  justify-content: space-between;
+}
+
+.control * {
+  color: var(--grey99);
+  font-size: 14px;
+}
+
+.button {
+  transition: color 150ms ease-in;
+}
+
+.button:hover {
+  color: steelblue;
+}
+
+@media (min-width: 768px) {
+  .filter {
+    flex: 0 1 40%;
+    order: 0;
+  }
+
+  .control * {
+    font-size: 18px;
+  }
+}
