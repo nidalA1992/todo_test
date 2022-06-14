@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { controlContext } from '../../context/conrolContext';
-import { dataContext, ITodoDataContext } from '../../context/dataContext';
 import { by } from '../../utils/by';
-// import { ITodoStorage } from '../../context/todosStoreContext';
 import { TodoItem } from './TodoItem';
 import styles from './todolist.css';
+import { controlContext } from '../../context/conrolContext';
+import { dataContext, ITodoDataContext } from '../../context/dataContext';
 
 interface ITodoList {
   todos: ITodoDataContext[];

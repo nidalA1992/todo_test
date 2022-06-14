@@ -11,5 +11,3 @@ export function pickFromSyntheticEvent<T extends HTMLElement>() {
 
 export const getValue = pickFromSyntheticEvent<HTMLInputElement>()('value');
 export const getChecked = pickFromSyntheticEvent<HTMLInputElement>()('checked');
-
-// function pickFromSyntheticEvent () { return (key) => (fn) => (event) => fn(event); }

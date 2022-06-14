@@ -4,30 +4,29 @@
   padding: 0 10px;
   width: 100%;
   line-height: 3.5em;
+  font-size: 18px;
   cursor: pointer;
   transition: background-color 100ms ease-in;
-  font-size: 18px;
 }
 
 .checkbox {
   position: relative;
   margin-left: 45px;
-  appearance: none;
   cursor: pointer;
+  appearance: none;
 }
 
 .checkbox::before {
   content: '';
-  display: inline-block;
   position: absolute;
   bottom: -15px;
   left: -45px;
-  border-radius: 50%;
+  display: inline-block;
   border: 1px solid var(--grey99);
+  border-radius: 50%;
   width: 30px;
   height: 30px;
   transition: border-color 150ms ease-in;
-
 }
 
 .checkbox::after {

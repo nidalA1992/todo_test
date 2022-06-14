@@ -3,8 +3,8 @@
   bottom: 0;
   display: flex;
   flex-wrap: wrap;
-  row-gap: 10px;
   justify-content: space-between;
+  row-gap: 10px;
   padding: 15px 20px;
   width: 100%;
 }
@@ -17,8 +17,8 @@
 .filter {
   display: flex;
   flex: 1 1 100%;
-  order: -1;
   justify-content: space-between;
+  order: -1;
 }
 
 .control * {
