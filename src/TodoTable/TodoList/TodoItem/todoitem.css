@@ -1,46 +1,16 @@
 .label {
+  position: relative;
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 120px 0 60px;
   width: 100%;
-  line-height: 3.5em;
-  font-size: 18px;
   cursor: pointer;
   transition: background-color 100ms ease-in;
 }
 
-.checkbox {
-  position: relative;
-  margin-left: 45px;
-  cursor: pointer;
-  appearance: none;
-}
-
-.checkbox::before {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: -45px;
-  display: inline-block;
-  border: 1px solid var(--grey99);
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  transition: border-color 150ms ease-in;
-}
-
-.checkbox::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: -38px;
-  border-left: 1px solid var(--green);
-  border-bottom: 1px solid var(--green);
-  width: 20px;
-  height: 10px;
-  opacity: 0;
-  transform: rotate(305deg) skewX(-15deg);
-  transition: opacity 150ms ease-in;
+.text {
+  font-size: 18px;
+  line-height: 3.5em;
 }
 
 .label:hover {
@@ -51,33 +21,11 @@
   transition: color 150ms ease-in;
 }
 
-.checkbox:checked::after {
-  display: inline-block;
-  opacity: 1;
+.created {
+  position: absolute;
+  font-size: 10px;
+  bottom: 2px;
+  color: #c4c4c4;
+  line-height: 1em;
+  right: 15px;
 }
-
-.checkbox:checked::before {
-  border-color: var(--green);
-}
-
-.checkbox:checked + .text  {
-  color: var(--grey99);
-  text-decoration: line-through;
-}
-
-.delButton {
-  margin-left: auto;
-}
-
-.delButton svg path {
-  transition: fill 100ms ease-in;
-}
-
-.delButton:hover svg path {
-  fill: red;
-}
-
-.delButton:active svg path {
-  fill: var(--black);
-}
-

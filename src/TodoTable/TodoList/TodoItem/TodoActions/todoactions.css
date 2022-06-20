@@ -1,0 +1,85 @@
+.input {
+  position: absolute;
+  width: 75%;
+  height: 100%;
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+}
+
+.checkbox {
+  position: absolute;
+  cursor: pointer;
+  appearance: none;
+}
+
+.checkbox::before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: -45px;
+  display: inline-block;
+  border: 1px solid var(--grey99);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  transition: border-color 150ms ease-in;
+}
+
+.checkbox::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: -38px;
+  border-left: 1px solid var(--green);
+  border-bottom: 1px solid var(--green);
+  width: 20px;
+  height: 10px;
+  opacity: 0;
+  transform: rotate(305deg) skewX(-15deg);
+  transition: opacity 150ms ease-in;
+}
+
+.checkbox:checked::after {
+  display: inline-block;
+  opacity: 1;
+}
+
+.checkbox:checked::before {
+  border-color: var(--green);
+}
+
+.checkbox:checked ~ [class*="text"]  {
+  color: var(--grey99);
+  text-decoration: line-through;
+}
+
+.delButton, .editButton {
+  position: absolute;
+  right: 15px;
+}
+
+.delButton svg path {
+  transition: fill 100ms ease-in;
+}
+
+.delButton:hover svg path {
+  fill: rgb(240, 105, 105);
+}
+
+.delButton:active svg path {
+  fill: var(--black);
+}
+
+.editButton {
+  right: 60px;
+}
+
+.editButton svg path {
+  fill: var(--grey99);
+  transition: fill 100ms ease-in;
+}
+
+.editButton:hover svg path {
+  fill: steelblue;
+}

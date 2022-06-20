@@ -9,17 +9,16 @@ export function TodoControl() {
   const {setFilter, filter}  = useContext(controlContext);
   const { data, setData } = useContext(dataContext);
 
-  useEffect(() => {setActiveNum(countActive(data))}, [data]);
-
-  useEffect(() => swithcButtonBy(filter), [filter]);
+  useEffect(() => setActiveNum(countActive(data)), [data]);
+  useEffect(() => switchButtonBy(filter), [filter]);
 
   const handleClickFilter = (e:SyntheticEvent<HTMLDivElement>) => {
-    swithcButtonBy(e.target)
+    switchButtonBy(e.target)
     const el = e.target as HTMLDivElement;
     e.target && setFilter(el.dataset.filter as TFilter)    ;
   }
 
-  const handleClickDeletCompleted = () => 
+  const handleClickDeleteCompleted = () => 
     data.forEach((i) => i.completed && setData([i], true));
 
   return (
@@ -36,7 +35,7 @@ export function TodoControl() {
           Completed
         </button>
       </div>
-      <button onClick={handleClickDeletCompleted  }>Clear completed</button>  
+      <button onClick={handleClickDeleteCompleted}>Clear completed</button>  
     </div>
   );
 }
@@ -46,14 +45,14 @@ const countActive = (data: ITodoDataContext[]) =>
     ? sum+=1 
     : sum+=0, 0);
 
-
+    
 const addAndRemoveClasses = (cond: boolean, elem: HTMLButtonElement) => 
   cond 
   ? elem.classList.remove(styles.active) 
   : elem.classList.add(styles.active);
 
 
-const swithcButtonBy = (data: string | EventTarget) => 
+const switchButtonBy = (data: string | EventTarget) => 
   document.querySelectorAll('button')
     .forEach((i) => typeof data === 'string' 
       ? addAndRemoveClasses(i.dataset.filter !== data, i) 

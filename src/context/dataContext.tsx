@@ -6,6 +6,7 @@ export interface ITodoDataContext {
   value?: string; 
   completed?: boolean;
   id?: string;
+  created?: number;
 }
 
 interface IDataContext {
@@ -30,8 +31,8 @@ export function DataContextProvider({children}: IDataContextProvider) {
 
   const setDataToContext = ([ value ]: ITodoDataContext[], del?: boolean) => {
     setData((prev) => del 
-      ? [...prev.filter(bySameId(value))] 
-      : [...prev.filter(bySameId(value)), value]
+      ? [...prev.filter(without(value))] 
+      : [...prev.filter(without(value)), value]
     );
   }
 
@@ -42,5 +43,5 @@ export function DataContextProvider({children}: IDataContextProvider) {
   );
 }
 
-const bySameId = (value: ITodoDataContext) => (i: ITodoDataContext) => i.id !== value.id;
+const without = (value: ITodoDataContext) => (i: ITodoDataContext) => i.id !== value.id;
 

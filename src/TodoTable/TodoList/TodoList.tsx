@@ -18,23 +18,9 @@ export function TodoList({todos}: ITodoList) {
     setTodoItems(data.filter(by(filter)));
   }, [filter, data])
 
-  useEffect(() => {
-    setTodoItems(data);
-  }, [data]);
-
-  const list = todoItems
-    .map((i) => 
-      i.value && 
-      <TodoItem 
-        value={i.value} 
-        key={i.id} 
-        id={i.id || i.value} 
-        completed={i.completed}/> 
-    );
-  
   return (
     <ul className={styles.todoList}>
-      {list}
+      { todoItems.map((props) => <TodoItem {...props} key={props.id}/> ) }
     </ul>
   );
 }

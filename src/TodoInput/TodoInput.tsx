@@ -3,22 +3,26 @@ import styles from './todoinput.css';
 import { getValue } from '../utils/pickFromSyntheticEvent';
 import { generateRandomKey } from '../utils/generateRandomKey';
 import { dataContext } from '../context/dataContext';
-import { controlContext } from '../context/conrolContext';
+import { ControledInput } from '../ControledInput';
 
-export function TodoInput() {
+interface ITodoInput {
+  placeholder?: string;
+  buttonText?: string;
+  style?: string;
+}
+
+export function TodoInput(props: ITodoInput) {
   const [value, setValue] = useState('');
   const { setData } = useContext(dataContext);
-  const { setFilter } = useContext(controlContext);
 
   const handleSubmit = (e:FormEvent) => {
     e.preventDefault();
-    setData(
-    [{
+    setData([{
       value: value, 
       completed: false, 
       id: generateRandomKey(), 
+      created: Date.now(),
     }])
-    setFilter('all');
     setValue('')
   }
 
